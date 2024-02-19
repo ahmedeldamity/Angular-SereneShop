@@ -26,9 +26,9 @@
           <span>Showing <strong> 5 </strong> of <strong> 20 </strong> Results</span>
         </header>
         <div class="d-flex mt-2">
-          <input type="text" class="form-control me-2" placeholder="Search" #search>
-          <button class="btn btn-outline-danger mx-2">Search</button>
-          <button class="btn btn-outline-success">Reset</button>
+          <input (keyup.enter)="onSearch()" type="text" class="form-control me-2" placeholder="Search" #search>
+          <button (click)="onSearch()" class="btn btn-outline-danger mx-2">Search</button>
+          <button (click)="onReset()" class="btn btn-outline-success">Reset</button>
         </div>
       </div>
       <div class="row row-cols-3 g-3">
