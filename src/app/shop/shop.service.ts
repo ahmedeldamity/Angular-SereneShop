@@ -39,4 +39,8 @@ export class ShopService {
     return this._HttpClient.get<Category[]>(this.baseUrl + 'product/categories')
   }
 
+  getProduct(id:number){
+    return this._HttpClient.get<Product>(this.baseUrl + 'product/' + id);
+  }
+
 }

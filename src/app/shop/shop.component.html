@@ -2,18 +2,18 @@
   <div class="row">
     <section class="col-3">
       <h5 class="text-warning ms-3 fw-bold">Sort</h5>
-      <select class="form-select mb-4" (change)="onSortSelected($event)">
+      <select class="form-select mb-4 pointer" (change)="onSortSelected($event)">
         <option [value]="sort.value" *ngFor="let sort of sortOptions">{{sort.name}}</option>
       </select>
       <h5 class="text-warning ms-3 fw-bold">Brands </h5>
-      <ul class="list-group my-3">
+      <ul class="list-group my-3 pointer">
         <li class="list-group-item" *ngFor="let brand of brands"
             [class.active]="brand.id === shopParams.brandId"
             (click)="onBrandSelected(brand.id)">{{brand.name}}
         </li>
       </ul>
       <h5 class="text-warning ms-3 fw-bold">Categories </h5>
-      <ul class="list-group my-3">
+      <ul class="list-group my-3 pointer">
         <li class="list-group-item" *ngFor="let category of categories"
             [class.active]="category.id === shopParams.categoryId"
             (click)="onCategorySelected(category.id)">{{category.name}}

@@ -1,1 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+.btn-3d {
+  position: relative !important;
+  display: inline-block !important;
+  padding: 10px 20px !important;
+  border: none !important;
+  border-radius: 8px !important;
+  background-color: #4d4dff !important;
+  color: #fff !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+  transition: transform 0.3s, box-shadow 0.3s !important;
+}
+
+.btn-3d:before {
+  content: "";
+  position: absolute !important;
+  top: 4px !important;
+  left: 4px !important;
+  width: calc(100% - 8px) !important;
+  height: calc(100% - 8px) !important;
+  background-color: rgba(0, 0, 0, 0.2) !important;
+  border-radius: inherit !important;
+  z-index: -1 !important;
+  transition: transform 0.3s, box-shadow 0.3s !important;
+}
+
+.btn-3d:hover, .btn-3d-active {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.disabled-btn{
+  background-color: #0D6EFD !important;
+  color: #ffffff8e !important;
+  cursor: not-allowed !important;
+}
