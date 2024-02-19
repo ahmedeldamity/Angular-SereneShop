@@ -1,0 +1,18 @@
+<header class="d-flex flex-row justify-content-between align-items-center p-3 px-4 mb-3 bg-white border-bottom fixed-top shadow-sm">
+
+  <img src="./assets/images/logo.ico" class="logo" alt="logo" routerLink="/">
+  <nav class="my-2 text-uppercase fs-4 fw-bold">
+    <a class="btn-3d ms-2 text-decoration-none" routerLink="/" routerLinkActive="btn-3d-active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    <a class="btn-3d ms-2 text-decoration-none" routerLink="/shop" routerLinkActive="btn-3d-active">Shop</a>
+    <a class="btn-3d ms-2 text-decoration-none" href="#">Contact</a>
+  </nav>
+  <div class="d-flex align-items-center">
+    <a class="position-relative">
+      <i class="fa fa-shopping-cart fa-2x me-5 text-dark"></i>
+      <div class="cart-no">5</div>
+    </a>
+    <a class="btn btn-outline-secondary me-2">Login</a>
+    <a class="btn btn-outline-secondary me-3">Sign Up</a>
+  </div>
+
+</header>
