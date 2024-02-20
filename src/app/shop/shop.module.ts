@@ -4,6 +4,7 @@ import { ShopComponent } from './shop.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ShopRoutingModule } from './shop-routing.module';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
   ],
   imports: [
     CommonModule,
-    ShopRoutingModule
+    ShopRoutingModule,
+    SharedModule, // beacuse I need pagination from it
   ],
   exports: [
     ShopComponent

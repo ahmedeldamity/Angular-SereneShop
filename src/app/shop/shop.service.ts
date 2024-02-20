@@ -21,6 +21,7 @@ export class ShopService {
     params = params.append('sort', shopParams.sort);
     params = params.append('pageIndex', shopParams.pageIndex);
     params = params.append('pageSize', shopParams.pageSize);
+    console.log("aaaa " + shopParams.brandId)
     if(shopParams.brandId > 0)
       params = params.append('brandId', shopParams.brandId);
     if(shopParams.categoryId > 0)

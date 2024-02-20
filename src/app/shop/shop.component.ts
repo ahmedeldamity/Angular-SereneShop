@@ -1,9 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ShopService } from './shop.service';
-import { Product } from '../shared/interfaces/product';
 import { Brand } from '../shared/interfaces/brand';
 import { Category } from '../shared/interfaces/category';
+import { Product } from '../shared/interfaces/product';
 import { shopParams } from '../shared/interfaces/shopParams';
+import { ShopService } from './shop.service';
+
 
 @Component({
   selector: 'app-shop',
@@ -18,6 +19,7 @@ export class ShopComponent implements OnInit {
   brands: Brand[] = [];
   categories: Category[] = [];
   shopParams = new shopParams();
+  totalCount:number = 0;
   sortOptions = [
     {name: 'Alphabetical', value: 'name'},
     {name: 'Price: Low to high', value: 'price'},
@@ -34,6 +36,9 @@ export class ShopComponent implements OnInit {
     this._ShopService.getProducts(this.shopParams).subscribe({
       next: (response) => {
         this.products = response.data;
+        this.shopParams.pageIndex = response.pageIndex;
+        this.shopParams.pageSize = response.pageSize;
+        this.totalCount = response.count;
       },
       error: (err) => {
         console.log(err);
@@ -76,7 +81,6 @@ export class ShopComponent implements OnInit {
   }
 
   onSortSelected(event: any){
-    console.log(event);
     this.shopParams.sort = event.target.value;
     this.getProducts();
   }
@@ -96,5 +100,14 @@ export class ShopComponent implements OnInit {
     this.shopParams = new shopParams();
     this.getProducts();
   }
+
+  onPageChanged(event: any){
+    if(this.shopParams.pageIndex !== event.page)
+    {
+      this.shopParams.pageIndex = event.page;
+      this.getProducts()
+    }
+  }
+
 
 }
