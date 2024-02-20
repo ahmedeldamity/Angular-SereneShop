@@ -21,13 +21,11 @@ export class ShopService {
     params = params.append('sort', shopParams.sort);
     params = params.append('pageIndex', shopParams.pageIndex);
     params = params.append('pageSize', shopParams.pageSize);
-    console.log("aaaa " + shopParams.brandId)
+    params = params.append('search', shopParams.search)
     if(shopParams.brandId > 0)
       params = params.append('brandId', shopParams.brandId);
     if(shopParams.categoryId > 0)
       params = params.append('categoryId', shopParams.categoryId);
-    if(shopParams.search)
-      params = params.append('search', shopParams.search)
 
     return this._HttpClient.get<Pagination<Product>>(this.baseUrl + 'product', {params});
   }

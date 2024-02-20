@@ -98,16 +98,16 @@ export class ShopComponent implements OnInit {
     if(this.searchTerm)
       this.searchTerm.nativeElement.value = '';
     this.shopParams = new shopParams();
+    console.log(this.shopParams.sort)
     this.getProducts();
   }
 
   onPageChanged(event: any){
-    if(this.shopParams.pageIndex !== event.page)
+    if(this.shopParams.pageIndex !== event)
     {
-      this.shopParams.pageIndex = event.page;
-      this.getProducts()
+      this.shopParams.pageIndex = event;
+      this.getProducts();
     }
   }
-
 
 }
