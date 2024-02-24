@@ -3,9 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
+import { errorInterceptor } from './core/interceptors/error.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -17,9 +20,11 @@ import { HomeModule } from './home/home.module';
     HttpClientModule, // this because I need to impoort httpClient in services (note: services providedIn: 'root' so I can use it any where and it see this import whatever where is it)
     CoreModule,       // I import this module to use nav-bar because nav-bar in core module
     // ShopModule,    // I import it in app-routing for lazy loading
-    HomeModule
+    HomeModule,
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: errorInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

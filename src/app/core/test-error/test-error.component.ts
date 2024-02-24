@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class TestErrorComponent {
 
   baseUrl = environment.apiUrl;
+  validationErrors:string[] = []
 
   constructor(private _HttpClient:HttpClient){}
 
@@ -53,6 +54,7 @@ export class TestErrorComponent {
       },
       error: (err) => {
         console.log(err);
+        this.validationErrors = err.errors;
       }
     })
   }
