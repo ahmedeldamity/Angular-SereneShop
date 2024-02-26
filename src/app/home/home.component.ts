@@ -16,7 +16,7 @@ export class HomeComponent {
     dots: true,
     navSpeed: 700,
     navText: ['', ''],
-    autoplay: false,
+    autoplay: true,
     autoplayTimeout: 3000,
     autoplaySpeed: 2000,
     items: 1,
