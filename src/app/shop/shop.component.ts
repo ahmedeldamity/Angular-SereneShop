@@ -5,7 +5,6 @@ import { Product } from '../shared/interfaces/product';
 import { shopParams } from '../shared/interfaces/shopParams';
 import { ShopService } from './shop.service';
 
-
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',

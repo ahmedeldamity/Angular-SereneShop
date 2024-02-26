@@ -5,7 +5,7 @@ import { ToastrService } from "ngx-toastr";
 import { Observable, catchError, throwError } from "rxjs";
 
 @Injectable()
-export class errorInterceptor implements HttpInterceptor {
+export class ErrorInterceptor implements HttpInterceptor {
 
   constructor(private _Router:Router, private _ToastrService:ToastrService){}
 
