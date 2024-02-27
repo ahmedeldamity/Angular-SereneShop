@@ -6,9 +6,11 @@
     <a class="btn-3d ms-2 text-decoration-none" routerLink="test-error" routerLinkActive="btn-3d-active">Errors</a>
   </nav>
   <div class="d-flex align-items-center">
-    <a class="position-relative">
+    <a routerLink="/basket" class="position-relative">
       <i class="fa fa-shopping-cart fa-2x me-5" style="color: rgb(227, 227, 227);"></i>
-      <div class="cart-no" style="background-color: #3E3ECC;">5</div>
+      <div *ngIf="(_BasketService.basketSource$ | async) as basket" class="cart-no" style="background-color: #3E3ECC;">
+        {{basket.items.length}}
+      </div>
     </a>
     <a class="btn btn-outline-secondary me-2">Login</a>
     <a class="btn btn-outline-secondary me-3">Sign Up</a>

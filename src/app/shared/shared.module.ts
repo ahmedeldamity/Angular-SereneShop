@@ -4,12 +4,14 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { FormsModule } from '@angular/forms';
 import { PaginationComponent } from './pagination/pagination.component';
 import { PaginationHeaderComponent } from './pagination-header/pagination-header.component';
+import { OrderTotalsComponent } from './order-totals/order-totals.component';
 
 
 @NgModule({
   declarations: [
     PaginationComponent,
-    PaginationHeaderComponent
+    PaginationHeaderComponent,
+    OrderTotalsComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { PaginationHeaderComponent } from './pagination-header/pagination-header
     PaginationModule,
     FormsModule,
     PaginationComponent,
-    PaginationHeaderComponent
+    PaginationHeaderComponent,
+    OrderTotalsComponent
   ]
 })
 export class SharedModule { }
