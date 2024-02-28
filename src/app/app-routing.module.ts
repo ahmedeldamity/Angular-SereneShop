@@ -12,7 +12,8 @@ const routes: Routes = [
   {path:'server-error', component:ServerErrorComponent},
   {path:'shop', loadChildren: () => import('./shop/shop.module').then(M => M.ShopModule)},
   {path:'basket', loadChildren: () => import('./basket/basket.module').then(M => M.BasketModule)},
-  {path:'checkout', loadChildren: () => import('./checkout/checkout-routing.module').then(M => M.CheckoutRoutingModule)},
+  {path:'checkout', loadChildren: () => import('./checkout/checkout.module').then(M => M.CheckoutModule)},
+  {path:'account', loadChildren: () => import('./account/account.module').then(M => M.AccountModule)},
   {path:'**', redirectTo:'', pathMatch:'full'}
 ];
 
