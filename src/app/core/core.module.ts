@@ -8,6 +8,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
 import { TestErrorComponent } from './test-error/test-error.component';
 import { SharedModule } from '../shared/shared.module';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { SharedModule } from '../shared/shared.module';
     TestErrorComponent,
     NotFoundComponent,
     ServerErrorComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -29,6 +31,7 @@ import { SharedModule } from '../shared/shared.module';
   ],
   exports: [
     NavBarComponent, // to use it in app-module
+    FooterComponent
   ]
 })
 export class CoreModule { }

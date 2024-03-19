@@ -26,7 +26,7 @@ export class TestErrorComponent {
   }
 
   get500Error(){
-    this._HttpClient.get(this.baseUrl + 'errors/servererror').subscribe({
+    this._HttpClient.get(this.baseUrl + 'buggy/servererror').subscribe({
       next: (response) => {
         console.log(response);
       },
@@ -37,7 +37,7 @@ export class TestErrorComponent {
   }
 
   get400Error(){
-    this._HttpClient.get(this.baseUrl + 'errors/badrequest').subscribe({
+    this._HttpClient.get(this.baseUrl + 'buggy/badrequest').subscribe({
       next: (response) => {
         console.log(response);
       },

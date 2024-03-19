@@ -29,7 +29,7 @@
           <button (click)="onReset()" class="btn btn-outline-success">Reset</button>
         </div>
       </div>
-      <div class="row row-cols-3 g-3">
+      <div class="row row-cols-3 g-3 pt-1">
         <div class="col" *ngFor=" let product of products">
           <app-product-item [product]="product"></app-product-item>
         </div>

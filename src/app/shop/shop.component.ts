@@ -48,7 +48,7 @@ export class ShopComponent implements OnInit {
   getBrands(){
     this._ShopService.getBrands().subscribe({
       next: (response) => {
-        this.brands = [{id: 0, name: 'All'}, ...response]
+        this.brands = [{id: 0, name: 'All', imageCover: ''}, ...response]
       },
       error: (err) => {
         console.log(err);
@@ -97,7 +97,6 @@ export class ShopComponent implements OnInit {
     if(this.searchTerm)
       this.searchTerm.nativeElement.value = '';
     this.shopParams = new shopParams();
-    console.log(this.shopParams.sort)
     this.getProducts();
   }
 

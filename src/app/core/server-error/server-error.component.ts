@@ -12,7 +12,5 @@ export class ServerErrorComponent {
   constructor(private _Router:Router){
     const navigation = this._Router.getCurrentNavigation();
     this.error = navigation?.extras?.state?.['error'];
-
   }
-
 }

@@ -1,7 +1,8 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { NgxSpinnerService } from "ngx-spinner";
-import { Observable, delay, finalize } from "rxjs";
+import { Observable, delay, finalize, identity } from "rxjs";
+import { environment } from "../../../environments/environment";
 
 @Injectable()
 export class LoadingInterceptor implements HttpInterceptor {
@@ -10,10 +11,13 @@ export class LoadingInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
-    if(!request.url.includes('emailexists')){
-      this._NgxSpinnerService.show();
+    if(request.url.includes('emailexists') || request.method === "POST" && request.url.includes('orders')){
+      return next.handle(request);
     }
-    return next.handle(request).pipe(finalize(() => {
+    this._NgxSpinnerService.show();
+    return next.handle(request).pipe(
+      (environment.production ? identity : delay(500)),
+      finalize(() => {
       this._NgxSpinnerService.hide();
     }));
   }

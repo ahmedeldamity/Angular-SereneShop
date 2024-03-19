@@ -1,4 +1,5 @@
 export interface Brand{
-  id: number,
-  name: string
+  id: number;
+  name: string;
+  imageCover: string;
 }

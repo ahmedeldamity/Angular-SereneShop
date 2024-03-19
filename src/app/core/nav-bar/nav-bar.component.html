@@ -1,25 +1,35 @@
-<header class="d-flex flex-row justify-content-between align-items-center p-3 px-4 bg-primary fixed-top shadow-sm">
-  <img src="./assets/images/logo.ico" class="logo" alt="logo" routerLink="/">
-  <nav class="text-uppercase fs-4 fw-bold">
-    <a class="btn-3d text-decoration-none" routerLink="/" routerLinkActive="btn-3d-active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-    <a class="btn-3d ms-2 text-decoration-none" routerLink="/shop" routerLinkActive="btn-3d-active">Shop</a>
-    <a class="btn-3d ms-2 text-decoration-none" routerLink="test-error" routerLinkActive="btn-3d-active">Errors</a>
-  </nav>
+<header class="d-flex justify-content-between align-items-center navbar navbar-expand-lg p-3 px-4 bg-body-tertiary fixed-top shadow-sm">
+  <a class="navbar-brand" routerLink="/">
+    <img width="120" src="./assets/images/logo.png" alt="cart logo">
+  </a>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/shop" routerLinkActive="active-link">Shop</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/test-error" routerLinkActive="active-link">Errors</a>
+      </li>
+    </ul>
+  </div>
   <div class="d-flex align-items-center">
     <a routerLink="/basket" class="position-relative">
-      <i class="fa fa-shopping-cart fa-2x me-5" style="color: rgb(227, 227, 227);"></i>
-      <div *ngIf="(_BasketService.basketSource$ | async) as basket" class="cart-no" style="background-color: #3E3ECC;">
+      <i class="fa fa-shopping-cart fa-2x me-5" style="color: rgb(174, 196, 202);"></i>
+      <div *ngIf="(_BasketService.basketSource$ | async) as basket" class="cart-no bg-primary">
         {{basket.items.length}}
       </div>
     </a>
     <ng-container *ngIf="(_AccountService.currentUser$ | async) === null">
-      <a routerLink="/account/login" class="btn btn-outline-secondary me-2">Login</a>
-      <a routerLink="/account/register" class="btn btn-outline-secondary me-3">Sign Up</a>
+      <a routerLink="/account/login" class="btn btn-outline-primary me-2">Login</a>
+      <a routerLink="/account/register" class="btn btn-outline-primary me-3">Sign Up</a>
     </ng-container>
     <ng-container *ngIf="(_AccountService.currentUser$ | async) as user">
       <div class="dropdown ms-3 me-5" style="cursor: pointer;" dropdown>
-        <a dropdownToggle class="dropdown-toggle">
-          <data class="text-white">Welocme <strong class="text-warning">{{user.displayName}}</strong></data>
+        <a dropdownToggle class="dropdown-toggle text-decoration-none">
+          <data class="text-primary">Welocme <strong class="text-warning">{{user.displayName}}</strong></data>
         </a>
         <ul *dropdownMenu class="dropdown-menu dropdown-menu-right">
           <li class="py-1">

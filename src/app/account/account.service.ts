@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { BehaviorSubject, map } from 'rxjs';
-import { User } from '../shared/interfaces/user';
+import { Address, User } from '../shared/interfaces/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -52,6 +52,14 @@ export class AccountService {
 
   checkEmailExists(email:string){
     return this._HttpClient.get<boolean>(this.baseUrl + 'account/emailexists?email=' + email);
+  }
+
+  getUserAddress(){
+    return this._HttpClient.get<Address>(this.baseUrl + 'account/address');
+  }
+
+  updateUserAddress(address: Address){
+    return this._HttpClient.put(this.baseUrl + 'account/address', address);
   }
 
 }

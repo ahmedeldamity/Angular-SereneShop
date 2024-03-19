@@ -28,6 +28,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             this._Router.navigateByUrl('/not-found');
           }
           if(error.status === 500){
+            console.log("ss")
             const navigationExtras: NavigationExtras = {state: {error: error.error}};
             this._Router.navigateByUrl('/server-error', navigationExtras);
           }

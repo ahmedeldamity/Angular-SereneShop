@@ -5,6 +5,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ShopRoutingModule } from './shop-routing.module';
 import { ShopComponent } from './shop.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ShopComponent } from './shop.component';
   imports: [
     CommonModule,
     ShopRoutingModule,
-    SharedModule, // beacuse I need pagination from it
+    SharedModule, // beacuse I need pagination from it,
+    CarouselModule
   ],
   exports: [
     ShopComponent

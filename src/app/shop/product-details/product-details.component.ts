@@ -4,6 +4,7 @@ import { ShopService } from '../shop.service';
 import { Product } from '../../shared/interfaces/product';
 import { BasketService } from '../../basket/basket.service';
 import { take } from 'rxjs';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-product-details',
@@ -68,10 +69,19 @@ export class ProductDetailsComponent implements OnInit{
     }
   }
 
-
-
-
+  mainSliderOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: true,
+    navSpeed: 700,
+    navText: ['', ''],
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplaySpeed: 2000,
+    items: 1,
+    nav: false
+  }
 
 }
-
-
